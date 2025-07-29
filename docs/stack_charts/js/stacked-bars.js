@@ -40,4 +40,16 @@ const drawStackedBars = (data) => {
       .attr("height", (d) => yScale(d[0]) - yScale(d[1]))
       .attr("fill", colorScale(series.key));
   });
+
+  const bottomAxis = d3
+    .axisBottom(xScale)
+    .tickValues(d3.range(1975, 2020, 5))
+    .tickSizeOuter(0);
+  innerChart
+    .append("g")
+    .attr("transform", `translate(0, ${innerHeight})`)
+    .call(bottomAxis);
+
+  const leftAxis = d3.axisLeft(yScale);
+  innerChart.append("g").call(leftAxis);
 };
