@@ -8,3 +8,5 @@ https://daniloderosa.github.io/d3_charts/
 |  02   | [Line Chart](/docs/line_chart_pie_chart/js/line-chart.js) | [Line Chart + Donut Chart](https://daniloderosa.github.io/d3_charts/line_chart_pie_chart/index.html) |
 |  03   | [Donut Chart](/docs/line_chart_pie_chart/js/arcs.js)      | [Line Chart + Donut Chart](https://daniloderosa.github.io/d3_charts/line_chart_pie_chart/index.html) |
 |  04   | [Donut Chart](/docs/stack_charts/js/donut-charts.js)      | [Stacked Charts](https://daniloderosa.github.io/d3_charts/stack_charts/index.html) |
+|  05   | [Streamgraph](/docs/stack_charts/js/streamgraph.js)      | [Stacked Charts](https://daniloderosa.github.io/d3_charts/stack_charts/index.html) |
+|  06   | [Stacked Bar](/docs/stack_charts/js/stacked-bars.js)      | [Stacked Charts](https://daniloderosa.github.io/d3_charts/stack_charts/index.html) |
