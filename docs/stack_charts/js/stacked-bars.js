@@ -13,20 +13,35 @@ const drawStackedBars = (data) => {
     .append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-  const stackGenerator = d3.stack().keys(formatsInfo.map((f) => f.id));
+  const stackGenerator = d3
+    .stack()
+    .keys(formatsInfo.map((f) => f.id))
+    .order(d3.stackOrderDescending)
+    .offset(d3.stackOffsetExpand);
   const annotatedData = stackGenerator(data);
   console.log(annotatedData);
 
   const maxUpperBoundary = d3.max(
+    // no longer used
     annotatedData[annotatedData.length - 1],
     (d) => d[1]
   );
 
+  const minLowerBoundaries = [];
+  const maxUpperBoundaries = [];
+
+  annotatedData.forEach((series) => {
+    minLowerBoundaries.push(d3.min(series, (d) => d[0]));
+    maxUpperBoundaries.push(d3.max(series, (d) => d[1]));
+  });
+
+  const minDomain = d3.min(minLowerBoundaries);
+  const maxDomain = d3.max(maxUpperBoundaries);
+
   const yScale = d3
     .scaleLinear()
-    .domain([0, maxUpperBoundary])
-    .range([innerHeight, 0])
-    .nice();
+    .domain([minDomain, maxDomain])
+    .range([innerHeight, 0]);
 
   annotatedData.forEach((series) => {
     innerChart

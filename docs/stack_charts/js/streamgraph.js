@@ -13,17 +13,33 @@ const drawStreamGraph = (data) => {
     .append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-  const stackGenerator = d3.stack().keys(formatsInfo.map((f) => f.id));
+  const stackGenerator = d3
+    .stack()
+    .keys(formatsInfo.map((f) => f.id))
+    .order(d3.stackOrderInsideOut)
+    .offset(d3.stackOffsetSilhouette);
   const annotatedData = stackGenerator(data);
 
   const maxUpperBoundary = d3.max(
+    //no longer used
     annotatedData[annotatedData.length - 1],
     (d) => d[1]
   );
 
+  const minLowerBoundaries = [];
+  const maxUpperBoundaries = [];
+
+  annotatedData.forEach((series) => {
+    minLowerBoundaries.push(d3.min(series, (d) => d[0]));
+    maxUpperBoundaries.push(d3.max(series, (d) => d[1]));
+  });
+
+  const minDomain = d3.min(minLowerBoundaries);
+  const maxDomain = d3.max(maxUpperBoundaries);
+
   const yScale = d3
     .scaleLinear()
-    .domain([0, maxUpperBoundary])
+    .domain([minDomain, maxDomain])
     .range([innerHeight, 0])
     .nice();
 
