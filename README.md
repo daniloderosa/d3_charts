@@ -13,4 +13,4 @@ https://daniloderosa.github.io/d3_charts/
 |  07   | [Histogram (Bins) Chart](/docs/distribution_charts/js/histogram.js)      | [Distribution Charts](https://daniloderosa.github.io/d3_charts/distribution_charts/index.html) |
 |  08   | [Pyramid Chart](/docs/distribution_charts/js/pyramid.js)      | [Distribution Charts](https://daniloderosa.github.io/d3_charts/distribution_charts/index.html) |
 |  09   | [Boxplot Chart](/docs/distribution_charts/js/box-plot.js)      | [Distribution Charts](https://daniloderosa.github.io/d3_charts/distribution_charts/index.html) |
-|  10   | [Violin Chart](/docs/distribution_charts/js/violin.js)      | [Distribution Charts](https://daniloderosa.github.io/d3_charts/distribution_charts/index.html) |
+|  10   | [Violin Chart](/docs/distribution_charts/js/violins.js)      | [Distribution Charts](https://daniloderosa.github.io/d3_charts/distribution_charts/index.html) |
